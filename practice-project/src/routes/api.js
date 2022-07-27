@@ -12,6 +12,10 @@ router.post("/UpdateProfile",AuthVerifyMiddleware,ProfileController.UpdateProfil
 
 
 router.post("/CreateToDo",AuthVerifyMiddleware,ToDoListController.CreateToDo)
+router.get("/SelectToDo",AuthVerifyMiddleware,ToDoListController.SelectToDo)
+router.post("/UpdateToDo",AuthVerifyMiddleware,ToDoListController.UpdateToDo)
+router.post("/UpdateStatusToDo",AuthVerifyMiddleware,ToDoListController.UpdateStatusToDo)
+router.post("/DeleteToDo",AuthVerifyMiddleware,ToDoListController.DeleteToDo)
 
 
 module.exports=router
