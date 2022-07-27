@@ -131,3 +131,22 @@ exports.SelectToDoByStatus=(req,res)=>{
         }
     })
 }
+
+
+
+//select todo by date...
+exports.SelectToDoByDate=(req,res)=>{
+
+    let UserName=req.headers['UserName']
+    let FormDate=req.body['FormDate']
+    let ToDate=req.body['ToDate']
+
+    ToDoListModel.find({UserName:UserName,TodoCreateDate:{$gte:new Date(FormDate),$lte:new Date(ToDate)}},(err,data)=>{
+        if(err){
+            res.status(401).json({status:"fail",data:err})
+        }else{
+            res.status(200).json({status:"success",data:data})
+        }
+    })
+}
+
